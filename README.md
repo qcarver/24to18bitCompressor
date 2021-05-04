@@ -18,6 +18,7 @@ from the .h file:
  * {11 => 0xFF, 10 => 0x80, 01 => 0x7F and 00 => 0x0} this is the trick to the
  * lossless compression, every mod3 byte we can map 2 bits to a whole byte
  *
+ ```
 +-------+------+----------------+----------------+----------------+-----------------+
 | Byte# | Mask | lloooooo (xC0) | oolloooo (x30) | oooolloo (x0C) | ooooooll (0x03) |
 +-------+------+----------------+----------------+----------------+-----------------+
@@ -45,5 +46,6 @@ from the .h file:
 +-------+------+----------------+----------------+----------------+-----------------+
 | 11    | FF   |                |                |                |                 |
 +-------+------+----------------+----------------+----------------+-----------------+
+```
 chart made with: https://www.tablesgenerator.com/text_tables#
  */
