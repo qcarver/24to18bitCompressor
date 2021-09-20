@@ -7,7 +7,7 @@ In the use-case intended the MSB could only be one of 4 possible values and so t
 values could be enumerated using only 2 bits. The compression takes advantage of 
 this and essentially saves 6 bits per sound sample.
 
-from the .h file:
+ ```
 /*
  * The following graphic depicts where expanded bits in the 12 byte space are
  * placed in the compressed 9 byte space. For example Byte[0]:lloooooo will not
@@ -16,9 +16,8 @@ from the .h file:
  * absent in the compressed form. This is because the MSB of the expanded byte
  * only has 4 possible values where [x%3]:lloooooo maps as follows:
  * {11 => 0xFF, 10 => 0x80, 01 => 0x7F and 00 => 0x0} this is the trick to the
- * lossless compression, every mod3 byte we can map 2 bits to a whole byte
- *
- ```
+ * lossless compression, every mod3 byte we can map 2 bits to a whole byte */
+ 
 +-------+------+----------------+----------------+----------------+-----------------+
 | Byte# | Mask | lloooooo (xC0) | oolloooo (x30) | oooolloo (x0C) | ooooooll (0x03) |
 +-------+------+----------------+----------------+----------------+-----------------+
